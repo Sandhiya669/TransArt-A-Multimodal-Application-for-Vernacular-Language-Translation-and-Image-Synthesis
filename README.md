@@ -27,10 +27,4 @@ streamlit run app.py
 
 2.Use the application:
 
-Audio Input: Click "Click to Record Tamil" to record Tamil speech
-Text Input: Type Tamil text in the text area
-Generate: Click "Translate and Generate Image" to:
-Translate Tamil to English
-Generate an AI image based on the translation
-Create creative content using Gemini AI
-
+This application allows users to interact with Tamil language content seamlessly. To record Tamil speech, simply click the "Click to Record Tamil" button, which captures your audio input. For text input, type your Tamil text in the designated text area. Once you have your content ready, click "Translate and Generate Image" to translate the Tamil text into English and generate an AI image based on the translation, enabling you to create unique and creative content using Gemini AI.
