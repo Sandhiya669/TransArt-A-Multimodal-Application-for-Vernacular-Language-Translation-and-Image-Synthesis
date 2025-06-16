@@ -47,7 +47,7 @@ def load_image_generation_model():
     return pipe, device
 
 
-genai.configure(api_key="AIzaSyCPTooBkK_1iutgKphTv1OclAGLzrBrksY")
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY")
 
 def generate_creative_content(prompt: str) -> str:
     try:
