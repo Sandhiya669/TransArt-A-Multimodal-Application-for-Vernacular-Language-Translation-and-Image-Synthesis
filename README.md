@@ -12,7 +12,14 @@ textual descriptions.
 
 1.Install the required packages:
 
-pip install streamlit torch transformers diffusers pillow google-generativeai speechrecognition audio-recorder-streamlit
+pip install streamlit
+pip install torch
+pip install transformers
+pip install diffusers
+pip install pillow
+pip install google-generativeai
+pip install SpeechRecognition
+pip install audio-recorder-streamlit
 
 2.Set up Google API key:
 
