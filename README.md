@@ -12,12 +12,13 @@ textual descriptions.
 
 1.Install the required packages:
 
-bash                                                               pip install streamlit torch transformers diffusers pillow google-generativeai speechrecognition audio-recorder-streamlit
+pip install streamlit torch transformers diffusers pillow google-generativeai speechrecognition audio-recorder-streamlit
 
 2.Set up Google API key:
 
 Get a Google Gemini API key
 Replace the API key in the code with your own
+
 ## Usage/Examples
 
 1.Run the Streamlit app:
