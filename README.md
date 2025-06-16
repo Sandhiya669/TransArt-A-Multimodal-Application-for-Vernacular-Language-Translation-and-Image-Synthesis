@@ -23,15 +23,14 @@ Replace the API key in the code with your own
 
 1.Run the Streamlit app:
 
-streamlit run app.py
+-->streamlit run app.py
 
 2.Use the application:
 
-Audio Input: Click "Click to Record Tamil" to record Tamil speech
-Text Input: Type Tamil text in the text area
-Generate: Click "Translate and Generate Image" to:
-
-Translate Tamil to English
-Generate an AI image based on the translation
-Create creative content using Gemini AI
+-->Audio Input: Click "Click to Record Tamil" to record Tamil speech
+-->Text Input: Type Tamil text in the text area
+-->Generate: Click "Translate and Generate Image" to:
+>Translate Tamil to English
+>Generate an AI image based on the translation
+>Create creative content using Gemini AI
 
