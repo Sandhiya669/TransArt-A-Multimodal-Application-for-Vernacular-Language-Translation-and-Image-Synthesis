@@ -11,7 +11,9 @@ import io
 import os
 
 st.set_page_config(page_title="TransArt", layout="wide")
-
+#loads model nllb
+#caching to avoid reloading
+#runs on cpu to manage memory usage
 @st.cache_resource
 def load_translation_model():
     with st.spinner("Loading translation model... This may take a moment."):
@@ -23,7 +25,9 @@ def load_translation_model():
         )
         return tokenizer, model
 
-
+#loads model sd
+#checks gpu availability to optimize performance
+#model loads with appropriate dtype based on device
 @st.cache_resource
 def load_image_generation_model():
     """Loads and caches the Stable Diffusion model pipeline."""
@@ -46,9 +50,11 @@ def load_image_generation_model():
         pipe = pipe.to(device)
     return pipe, device
 
-
+#google gen.ai model with api key stored in environment variables
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY")
-
+                
+#generates content 
+#handles exceptions to provide feedback in case of error                
 def generate_creative_content(prompt: str) -> str:
     try:
         model = genai.GenerativeModel("gemini-1.5-flash")
@@ -61,7 +67,8 @@ def generate_creative_content(prompt: str) -> str:
 translation_tokenizer, translation_model = load_translation_model()
 image_pipe, image_device = load_image_generation_model()
 
-
+#transaltes text tamil to english
+#tokenizes input,generates output 
 def translate_text(tokenizer, model, tamil_text):
     tokenizer.src_lang = "tam_Taml"
 
@@ -77,7 +84,8 @@ def translate_text(tokenizer, model, tamil_text):
     english_text = tokenizer.decode(output[0], skip_special_tokens=True)
     return english_text
 
-
+#image genera tion using sd
+#runs the model without tracking gradients
 def generate_image_with_sd(pipe, device, prompt):
     enhanced_prompt = f"{prompt}"
     
@@ -85,7 +93,8 @@ def generate_image_with_sd(pipe, device, prompt):
     with torch.no_grad():
         image = pipe(prompt=enhanced_prompt, num_inference_steps=20).images[0]
     return image
-
+#listens speech
+#handles error related to speech
 def recognize_tamil_speech():
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
@@ -103,6 +112,8 @@ def recognize_tamil_speech():
         
 
 tamil_text=""
+#section intializes the session state for tamil text & allows users to record audio
+#process the audio to text
 if "my_text" not in st.session_state:
     st.session_state.my_text = "ஒரு அழகான பூனை ஜன்னல் அருகே அமர்ந்திருக்கிறது"
 
